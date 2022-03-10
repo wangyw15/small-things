@@ -4,9 +4,11 @@ module.exports.parse = async (
 ) => {
   // ----------自定义区域----------
   // 自定义规则
+  // 规则示例
   var customGroups = [
     {
       name: '🎮 Steam',
+      ruleType: 'DOMAIN-SUFFIX',
       domains: [
         'steampowered.com',
         'steam-chat.com',
@@ -15,7 +17,10 @@ module.exports.parse = async (
         'steamcontent.com',
         'steamstatic.com',
         'steamcdn-a.akamaihd.net',
-        'steamcommunity.com'
+        {
+          domain: 'steamcommunity.com',
+          type: 'DOMAIN-SUFFIX'
+        }
       ],
       replacePattern: /steam\S*\.(com|net)/g
     }
@@ -25,7 +30,23 @@ module.exports.parse = async (
   // ----------结束----------
 
   // 根据URL生成rules
-  var generateRules = (urls, name) => urls.map(item => 'DOMAIN-SUFFIX,' + item + ',' + name);
+  // var generateRules = group => group.domains.map(item => 'DOMAIN-SUFFIX,' + item + ',' + group.name);
+  var generateRules = group => {
+    var ret = [];
+    var defaultRuleType = typeof (group.ruleType != typeof (undefined)) ? group.ruleType : 'DOMAIN-SUFFIX';
+    for(var i = 0; i < group.domains.length; i++)
+    {
+      if(typeof(group.domains[i]) == typeof(''))
+      {
+        ret.push(defaultRuleType + ',' + group.domains[i] + ',' + group.name);
+      }
+      else
+      {
+        ret.push(group.domains[i].type + ',' + group.domains[i].domain + ',' + group.name);
+      }
+    }
+    return ret;
+  };
 
   // 读取proxies
   var getProxyNames = () => content.proxies.map(item => item.name);
@@ -78,7 +99,7 @@ module.exports.parse = async (
     }
 
     // 添加自定义rules
-    var rules = generateRules(currentGroup.domains, currentGroup.name);
+    var rules = generateRules(currentGroup);
     for (var j = 0; j < rules.length; j++) {
       content.rules.unshift(rules[j]);
     }
