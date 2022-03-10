@@ -42,13 +42,10 @@ module.exports.parse = async (
 
   // 生成proxy-group
   var generateProxyGroup = groupName => {
-    var generatedProxies = getProxyNames();
-    generatedProxies.unshift('DIRECT');
-    generatedProxies.unshift(getMainProxyName());
     return {
       name: groupName,
       type: 'select',
-      proxies: generatedProxies
+      proxies: [getMainProxyName(), 'DIRECT'].concat(getProxyNames())
     };
   };
 
