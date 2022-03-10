@@ -55,7 +55,7 @@ module.exports.parse = async (
   for (var i = 0; i < customGroups.length; i++) {
     var currentGroup = customGroups[i];
     // 添加proxy-group
-    content['proxy-groups'].splice(1, 0, generateProxyGroup(currentGroup.name));
+    content['proxy-groups'].splice(1 + i, 0, generateProxyGroup(currentGroup.name));
 
     var useRegexPattern = typeof ((currentGroup.replacePattern) != typeof (undefined) && currentGroup.replacePattern != null);
     useRegexPattern = false;
