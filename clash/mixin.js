@@ -7,7 +7,7 @@ module.exports.parse = async (
   var customGroups = [
     {
       name: '🎮 Steam',
-      urls: [
+      domains: [
         'steampowered.com',
         'steam-chat.com',
         'steamgames.com',
@@ -45,7 +45,7 @@ module.exports.parse = async (
     return {
       name: groupName,
       type: 'select',
-      proxies: [getMainProxyName(), 'DIRECT'].concat(getProxyNames())
+      proxies: [getMainProxyName(), 'DIRECT', 'REJECT'].concat(getProxyNames())
     };
   };
 
@@ -71,14 +71,14 @@ module.exports.parse = async (
       // 使用urls列表
       else {
         var currentDomain = getDomainFromRule(currentRule);
-        if (currentGroup.urls.indexOf(currentDomain) != -1) {
+        if (currentGroup.domains.indexOf(currentDomain) != -1) {
           content.rules.splice(i, 1);
         }
       }
     }
 
     // 添加自定义rules
-    var rules = generateRules(currentGroup.urls, currentGroup.name);
+    var rules = generateRules(currentGroup.domains, currentGroup.name);
     for (var j = 0; j < rules.length; j++) {
       content.rules.unshift(rules[j]);
     }
