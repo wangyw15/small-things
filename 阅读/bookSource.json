@@ -1,0 +1,169 @@
+[
+    {
+        "bookSourceComment": "By wangyw15",
+        "bookSourceGroup": "自用,小说",
+        "bookSourceName": "铅笔小说",
+        "bookSourceType": 0,
+        "bookSourceUrl": "https://www.23qb.net",
+        "bookUrlPattern": "",
+        "concurrentRate": "",
+        "customOrder": -88888890,
+        "enabled": true,
+        "enabledExplore": true,
+        "exploreUrl": "最近更新::https://www.23qb.net/book/0-lastupdate-0-0-0-0-0-0-{{page}}.html\n最新入库::https://www.23qb.net/book/0-postdate-0-0-0-0-0-0-{{page}}.html\n总点击榜::https://www.23qb.net/book/0-allvisit-0-0-0-0-0-0-{{page}}.html\n总推荐榜::https://www.23qb.net/book/0-allvote-0-0-0-0-0-0-{{page}}.html\n总收藏榜::https://www.23qb.net/book/0-goodnum-0-0-0-0-0-0-{{page}}.html\n总字数榜::https://www.23qb.net/book/0-size-0-0-0-0-0-0-{{page}}.html\n完本小说::https://www.23qb.net/book/0-quanben-0-0-0-0-2-0-{{page}}.html\n全部小说::https://www.23qb.net/book/0-quanben-0-0-0-0-0-0-{{page}}.html\n言情女生::/yanqing/<,{{page}}>\n玄幻奇幻::/xuanhuan/<,{{page}}>\n都市青春::/dushi/<,{{page}}>\n武侠仙侠::/wuxia/<,{{page}}>\n唯美纯爱::/danmei/<,{{page}}>\n科幻灵异::/kehuan/<,{{page}}>\n轻小说の::/lightnovel/<,{{page}}>\n历史军事::/lishi/<,{{page}}>",
+        "header": "",
+        "lastUpdateTime": 1638627925876,
+        "loginCheckJs": "",
+        "loginUi": "",
+        "loginUrl": "https://www.23qb.net/login.php?jumpurl=https%3A%2F%2Fwww.23qb.net",
+        "respondTime": 180000,
+        "ruleBookInfo": {
+            "author": "id.count@tag.li.0@a@text",
+            "coverUrl": "id.bookimg@img@src",
+            "intro": "id.bookintro@p@textNodes",
+            "kind": "id.count@li!0:3@span@text",
+            "lastChapter": "class.chaw@tag.li.0@a@text",
+            "name": "class.d_title@text"
+        },
+        "ruleContent": {
+            "content": "id.TextContent@tag.p@text",
+            "nextContentUrl": "##nextpage=\"([^\"]+)\"##$1###",
+            "replaceRegex": "##铅笔小说|\\s*（继续下一页）\\s*|\\s?23qb.net\\s*"
+        },
+        "ruleExplore": {},
+        "ruleSearch": {
+            "author": ".book_other@span.0@text",
+            "bookList": "id.sitebox@dl",
+            "bookUrl": "a@href",
+            "coverUrl": "img@_src",
+            "intro": ".book_des@text",
+            "kind": "tag.span.0@text&&tag.span.3@text",
+            "lastChapter": "class.book_other.1@a@text",
+            "name": "h3@a@text",
+            "wordCount": "class.book_other.0@tag.span.2@text"
+        },
+        "ruleToc": {
+            "chapterList": "class.chaw_c@li@a",
+            "chapterName": "text",
+            "chapterUrl": "href"
+        },
+        "searchUrl": "https://www.23qb.net/saerch.php,{\n  \"charset\": \"gbk\",\n  \"method\": \"POST\",\n  \"body\": \"searchkey={{key}}&page={{page}}&searchtype=all\"\n}",
+        "weight": 0
+    },
+    {
+        "bookSourceComment": "By wangyw15",
+        "bookSourceGroup": "自用,漫画",
+        "bookSourceName": "动漫之家",
+        "bookSourceType": 0,
+        "bookSourceUrl": "https://manhua.dmzj.com",
+        "bookUrlPattern": "",
+        "concurrentRate": "",
+        "customOrder": 0,
+        "enabled": true,
+        "enabledExplore": true,
+        "exploreUrl": "总人气排行::https://manhua.dmzj.com/rank/{{page == 1 ? \"\" : \"total-block-\" + page + \".shtml\"}}\n本月人气排行::https://manhua.dmzj.com/rank/month-block-{{page}}.shtml\n本周人气排行::https://manhua.dmzj.com/rank/week-block-{{page}}.shtml\n今日人气排行::https://manhua.dmzj.com/rank/day-block-{{page}}.shtml\n订阅排行::https://manhua.dmzj.com/rank/subscribe/block-{{page}}.shtml",
+        "header": "",
+        "lastUpdateTime": 1639248082885,
+        "loginCheckJs": "",
+        "loginUi": "",
+        "loginUrl": "https://manhua.dmzj.com",
+        "respondTime": 180000,
+        "ruleBookInfo": {
+            "author": "class.anim-main_list.0@tag.tr.2@tag.td@text##\\s##,",
+            "coverUrl": "class.anim_intro_ptext.0@tag.img.0@src\n@js:\nvar headers = { \"Referer\": \"https://manhua.dmzj.com/\" };\nvar option = { \"headers\": headers };\nresult + ',' + JSON.stringify(option)",
+            "intro": "class.line_height_content.0@text##欢迎在动漫之家漫画网观看\\S*漫画",
+            "kind": "class.anim-main_list.0@tag.tr.6@tag.td@text##\\s##,",
+            "lastChapter": "class.anim-main_list.0@tag.tr.8@tag.a.0@text",
+            "name": "class.anim_title_text.0@text"
+        },
+        "ruleContent": {
+            "content": "id.page_select@tag.option@value\n@js:\nvar headers = { \"Referer\": \"https://manhua.dmzj.com/\" };\nvar option = { \"headers\": headers };\nresult.split('\\n').map(url => '<img src=\"' + url + ',' + JSON.stringify(option) + '\" >').join('\\n')"
+        },
+        "ruleExplore": {
+            "author": "class.righter-mr.1@tag.span.0@tag.a.0@text",
+            "bookList": "class.middlerighter",
+            "bookUrl": "class.title.0@tag.a.0@href",
+            "coverUrl": "class.righter-img.0@tag.img.0@src\n@js:\nvar headers = { \"Referer\": \"https://manhua.dmzj.com/\" };\nvar option = { \"headers\": headers };\nresult + ',' + JSON.stringify(option)",
+            "intro": "class.righter-texter.0@text",
+            "kind": "class.righter-mr.1@tag.span.!0@tag.a@text",
+            "lastChapter": "class.righter-mr.0@tag.span.1@tag.a.0@text",
+            "name": "class.title.0@tag.a.0@text"
+        },
+        "ruleSearch": {
+            "author": "tag.li.1@tag.div.0@text##/##,",
+            "bookList": "class.tcaricature_block.0@tag.ul",
+            "bookUrl": "tag.li.0@tag.a.0@href",
+            "coverUrl": "tag.li.0@tag.img.0@src\n@js:\nvar headers = { \"Referer\": \"https://manhua.dmzj.com/\" };\nvar option = { \"headers\": headers };\nresult + ',' + JSON.stringify(option)",
+            "lastChapter": "tag.li.1@tag.div.1@tag.a.0@text",
+            "name": "tag.li.0@tag.a.0@title"
+        },
+        "ruleToc": {
+            "chapterList": "class.cartoon_online_border.0@tag.ul.0@tag.li",
+            "chapterName": "tag.a.0@text",
+            "chapterUrl": "tag.a.0@href\n@js:\nvar headers = { \"Referer\": \"https://manhua.dmzj.com/\" };\nvar option = { \"headers\": headers, \"webView\": true };\nresult + ',' + JSON.stringify(option)"
+        },
+        "searchUrl": "https://manhua.dmzj.com/tags/search.shtml?s={{key}},{\"webView\": true}",
+        "weight": 0
+    },
+    {
+        "bookSourceComment": "By wangyw15",
+        "bookSourceGroup": "自用,小说",
+        "bookSourceName": "哩哔轻小说",
+        "bookSourceType": 0,
+        "bookSourceUrl": "https://www.linovelib.com",
+        "bookUrlPattern": "",
+        "concurrentRate": "",
+        "customOrder": 0,
+        "enabled": true,
+        "enabledExplore": true,
+        "exploreUrl": "总点击榜::https://www.linovelib.com/top/allvisit/{{page}}.html\n月点击榜::https://www.linovelib.com/top/monthvisit/{{page}}.html\n总推荐榜::https://www.linovelib.com/top/allvote/{{page}}.html\n月推荐榜::https://www.linovelib.com/top/monthvote/{{page}}.html\n总鲜花榜::https://www.linovelib.com/top/allflower/{{page}}.html\n月鲜花榜::https://www.linovelib.com/top/monthflower/{{page}}.html\n最近更新::https://www.linovelib.com/top/lastupdate/{{page}}.html\n最新入库::https://www.linovelib.com/top/postdate/{{page}}.html\n最新上架::https://www.linovelib.com/top/signtime/{{page}}.html\n收藏榜::https://www.linovelib.com/top/goodnum/{{page}}.html\n字数榜::https://www.linovelib.com/top/words/{{page}}.html\n新书榜::https://www.linovelib.com/top/newhot/{{page}}.html",
+        "header": "",
+        "lastUpdateTime": 1641796728145,
+        "loginCheckJs": "",
+        "loginUi": "",
+        "loginUrl": "https://www.linovelib.com/login.php",
+        "respondTime": 180000,
+        "ruleBookInfo": {
+            "author": "class.au-name.0@text",
+            "coverUrl": "class.book-img.0@tag.img.0@src",
+            "intro": "class.book-dec.0@tag.p.0@all",
+            "kind": "class.book-label.0@tag.a@text",
+            "lastChapter": "class.book-new-chapter.0@class.tit.0@tag.a.0@text",
+            "name": "class.book-name.0@text",
+            "tocUrl": "class.read-btn.0@href",
+            "wordCount": "class.nums.0@tag.span.1@tag.i.0@text##\\s万##万字"
+        },
+        "ruleContent": {
+            "content": "id.TextContent@children@all\n@js:\nresult.split('\\n').map(para => para.trim()).join('\\n')",
+            "nextContentUrl": "class.mlfy_page.0@text.下一页.0@href",
+            "replaceRegex": "##embed[0-9]*_HD\\s?|\\s*style_\\S*\\(\\);\\s*"
+        },
+        "ruleExplore": {
+            "author": "class.rank_d_b_cate.0@tag.a.0@text",
+            "bookList": "class.rankpage_box.0@class.rank_d_list",
+            "bookUrl": "class.rank_d_b_name.0@tag.a.0@href",
+            "coverUrl": "class.rank_d_book_img.0@tag.img.0@data-original",
+            "intro": "class.rank_d_b_info.0@text",
+            "kind": "class.rank_d_b_cate.0@tag.a.!0@text",
+            "lastChapter": "class.rank_d_b_last.0@title",
+            "name": "class.rank_d_b_name.0@tag.a.0@text"
+        },
+        "ruleSearch": {
+            "author": "class.se-result-infos.0@class.bookinfo.0@tag.a.0@text",
+            "bookList": "class.search-tab.0@class.search-result-list",
+            "bookUrl": "class.se-result-infos.0@class.tit.0@tag.a.0@href",
+            "coverUrl": "class.se-result-book.0@tag.img.0@src",
+            "intro": "class.se-result-infos.0@tag.p.0@text",
+            "kind": "class.se-result-infos.0@class.bookinfo.0@tag.span.0@text&&class.se-result-infos.0@class.bookinfo.0@tag.a.1@text&&class.se-result-infos.0@class.key-word.0@text##\\s##,",
+            "name": "class.se-result-infos.0@class.tit.0@tag.a.0@text",
+            "wordCount": "class.se-result-infos.0@class.bookinfo.0@tag.span.1@tag.script.0@html##<\\S?script>|towan|\\(|\\)|'"
+        },
+        "ruleToc": {
+            "chapterList": "class.chapter-list.0@children\n@js:\nvar ret = new Array();\nvar currentVolume = '';\nfor (var i = 0; i < result.length; i++) {\n    var currentElement = result[i];\n    if (currentElement.tagName().toLowerCase() == 'div') {\n        currentVolume = currentElement.text();\n    }\n    else {\n        currentElement.children()[0].text(currentVolume + ' ' + currentElement.children()[0].text());\n        ret.push(currentElement);\n    }\n}\nret",
+            "chapterName": "tag.a.0@text",
+            "chapterUrl": "tag.a.0@href"
+        },
+        "searchUrl": "/sa/{{key}}_{{page}}.html",
+        "weight": 0
+    }
+]
